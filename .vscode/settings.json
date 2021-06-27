@@ -40,5 +40,11 @@
   "terminal.integrated.fontFamily": "'Inconsolata', 'Source Code Pro', monospace",
   "workbench.colorTheme": "Winter is Coming (Dark Black - No Italics)",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.view.alwaysShowHeaderActions": true
+  "workbench.view.alwaysShowHeaderActions": true,
+  "cSpell.words": [
+    "Bombasto",
+    "Celeritas",
+    "Dynama",
+    "Magneta"
+  ]
 }
