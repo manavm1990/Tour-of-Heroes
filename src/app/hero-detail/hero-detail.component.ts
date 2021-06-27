@@ -20,6 +20,10 @@ export class HeroDetailComponent implements OnInit {
     });
   }
 
+  goBack() {
+    this.location.back();
+  }
+
   constructor(
     // Has info about the route (e.g. 'id' parameter)
     private route: ActivatedRoute,
