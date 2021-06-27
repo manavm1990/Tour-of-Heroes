@@ -22,7 +22,9 @@ export class HeroesComponent implements OnInit {
   ) {}
 
   getHeroes() {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().
+    // Wait for Observable to emit the array of heroes...
+    subscribe(heroes => this.heroes = heroes)
   }
 
   ngOnInit() {
