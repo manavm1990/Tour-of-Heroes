@@ -24,6 +24,14 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save() {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => {
+        this.goBack();
+      });
+    }
+  }
+
   constructor(
     // Has info about the route (e.g. 'id' parameter)
     private route: ActivatedRoute,
