@@ -24,3 +24,7 @@ h3 {
   color: #444;
   font-weight: lighter;
 }
+
+p {
+  margin: 0;
+}
