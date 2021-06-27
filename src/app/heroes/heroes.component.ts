@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 // Annotate our class with necessary metadata 👇🏾 using the Component DECORATOR from angular core
 @Component({
@@ -9,7 +9,7 @@ import { Hero } from '../hero';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent {
-  hero: Hero = { id: 1, name: 'Windstorm' };
+  heroes = HEROES;
 
   constructor() {}
 }
