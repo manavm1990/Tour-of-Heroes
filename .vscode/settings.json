@@ -29,10 +29,7 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 80,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
-  "files.defaultLanguage": "",
-  "files.eol": "\n",
+  "files.autoSave": "onFocusChange",
   "files.trimTrailingWhitespace": true,
   "javascript.validate.enable": false,
   "prettier.requireConfig": true,
@@ -41,10 +38,5 @@
   "workbench.colorTheme": "Winter is Coming (Dark Black - No Italics)",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.view.alwaysShowHeaderActions": true,
-  "cSpell.words": [
-    "Bombasto",
-    "Celeritas",
-    "Dynama",
-    "Magneta"
-  ]
+  "cSpell.words": ["Bombasto", "Celeritas", "Dynama", "Magneta"]
 }
