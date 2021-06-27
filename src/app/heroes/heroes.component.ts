@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HEROES } from '../mock-heroes';
+import {Hero} from '../hero'
 
 // Annotate our class with necessary metadata 👇🏾 using the Component DECORATOR from angular core
 @Component({
@@ -10,6 +11,8 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent {
   heroes = HEROES;
-
-  constructor() {}
+  selectedHero?: Hero;
+  onSelect(hero: Hero) {
+    this.selectedHero = hero;
+  }
 }
