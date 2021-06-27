@@ -12,18 +12,12 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
-  selectedHero?: Hero;
 
   getHeroes() {
     this.heroService
       .getHeroes()
       // Wait for Observable to emit the array of heroes...
       .subscribe((heroes) => (this.heroes = heroes));
-  }
-
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
   constructor(
