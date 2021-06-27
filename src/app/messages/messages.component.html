@@ -1,1 +1,9 @@
-<p>messages works!</p>
+<section *ngIf="messageService.messages.length">
+  <h3>Messages</h3>
+  <button class="clear" (click)="messageService.clear()">Clear Messages</button>
+  <ul>
+    <li *ngFor="let message of messageService.messages">
+      <p>{{ message }}</p>
+    </li>
+  </ul>
+</section>
