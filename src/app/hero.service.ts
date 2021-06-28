@@ -90,6 +90,22 @@ export class HeroService {
     );
   }
 
+  // Get heroes whose name contains search term
+  searchHeroes(searchTerm: string): Observable<Hero[]> {
+    if (!searchTerm.trim()) {
+      return of([]);
+    }
+
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${searchTerm}`).pipe(
+      tap((results) => {
+        results.length
+          ? this.log(`found heroes matching "${searchTerm}`)
+          : this.log(`no heroes matching "${searchTerm}`);
+      }),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+  }
+
   // service-in-service
   constructor(
     private http: HttpClient,
