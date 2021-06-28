@@ -50,7 +50,9 @@ export class HeroService {
         // A flow of Observables
         .pipe(
           // Tap into this pipe to send a message
-          tap(() => this.log(`fetched hero id=${id}`)),
+          tap(() => {
+            this.log(`fetched hero id=${id}`);
+          }),
           // Pipe error handler into `catchError`
           catchError(this.handleError<Hero>(`getHero id=${id}`))
         )
@@ -59,7 +61,9 @@ export class HeroService {
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
-      tap((_) => this.log('fetched heroes')),
+      tap((_) => {
+        this.log('fetched heroes');
+      }),
       catchError(this.handleError<Hero[]>('getHeroes', []))
     );
   }
@@ -67,7 +71,9 @@ export class HeroService {
   // PUT: update hero 🦸🏾‍♂️
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(() => this.log(`updated hero id=${hero.id}`)),
+      tap(() => {
+        this.log(`updated hero id=${hero.id}`);
+      }),
       catchError(this.handleError<any>('updateHero'))
     );
   }
@@ -75,7 +81,9 @@ export class HeroService {
   // POST: add hero 🦸🏾‍♂️
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      tap((newHero: Hero) => {
+        this.log(`added hero w/ id=${newHero.id}`);
+      }),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -85,7 +93,9 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(() => this.log(`deleted 🔥 hero id=${id}`)),
+      tap(() => {
+        this.log(`deleted 🔥 hero id=${id}`);
+      }),
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
