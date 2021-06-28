@@ -25,6 +25,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save() {
+    // `if` satisfies TS so that we only attempt this with an actual Hero
     if (this.hero) {
       this.heroService.updateHero(this.hero).subscribe(() => {
         this.goBack();

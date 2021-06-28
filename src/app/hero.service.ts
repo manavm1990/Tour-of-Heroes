@@ -17,7 +17,7 @@ export class HeroService {
    * Handle Http operation that failed.
    * Let the app continue.
    * This is set up to handle any TYPE of `Observable` result.
-   * @param operation - name of the operation that failed
+   * @param operation - name of the operation that failed (if known)
    * @param result - optional value to return as the observable result
    */
   private handleError<Type>(operation = 'operation', result?: Type) {
@@ -28,6 +28,7 @@ export class HeroService {
       this.log(`${operation} failed: ${error.message}`);
 
       // Return an empty result so app can keep 🏃🏾‍♂️
+      // Assert result to insure that it's the expected Type caller expects
       return of(result as Type);
     };
   }
@@ -43,9 +44,16 @@ export class HeroService {
   // GET hero by id. '404' if not found!
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<Hero>(url).pipe(
-      tap((_) => this.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    return (
+      this.http
+        .get<Hero>(url)
+        // A flow of Observables
+        .pipe(
+          // Tap into this pipe to send a message
+          tap(() => this.log(`fetched hero id=${id}`)),
+          // Pipe error handler into `catchError`
+          catchError(this.handleError<Hero>(`getHero id=${id}`))
+        )
     );
   }
 

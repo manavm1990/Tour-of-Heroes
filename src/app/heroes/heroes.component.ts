@@ -25,7 +25,10 @@ export class HeroesComponent implements OnInit {
 
   delete(hero2Delete: Hero): void {
     this.heroes = this.heroes.filter((hero) => hero !== hero2Delete);
-    this.heroService.deleteHero(hero2Delete.id).subscribe();
+    this.heroService
+      .deleteHero(hero2Delete.id)
+      // ⚠️ MUST subscribe or Observable won't do anything (if it's not being 'observed')
+      .subscribe();
   }
 
   getHeroes() {
