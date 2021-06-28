@@ -20,7 +20,7 @@ export class HeroService {
    * @param operation - name of the operation that failed (if known)
    * @param result - optional value to return as the observable result
    */
-  private handleError<Type>(operation = 'operation', result?: Type) {
+  private handleError<Type>(operation = 'unknown operation', result?: Type) {
     return (error: any): Observable<Type> => {
       // TODO: Send error to remote logger
       console.error(error);
